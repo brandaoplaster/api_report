@@ -8,7 +8,7 @@ import Config
 config :api_report, ApiReport.Repo,
   username: "postgres",
   password: "postgres",
-  hostname: "localhost",
+  hostname: "db_phx",
   database: "api_report_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10

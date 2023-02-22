@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      context: .
+    container_name: api_report
+    restart: unless-stopped
+    command: sh ./start.sh
+    volumes:
+      - .:/app
+    ports:
+      - 4000:4000
+    depends_on:
+      - db_phx
+    networks:
+      - api_report_net
+
+  db_phx:
+    container_name: api_report_db
+    image: 'postgres:13'
+    volumes:
+      - 'postgres:/var/lib/postgresql/data'
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_PASSWORD: 'postgres'
+    networks:
+      - api_report_net
+
+volumes:
+  postgres:
+
+networks:
+  api_report_net:
+    name: api_report_net
