@@ -1,19 +1,21 @@
-defmodule ApiReport.Partners.Partner do
+defmodule ApiReport.Registrations.Registration do
   use Ecto.Schema
 
   import Ecto.Changeset
 
-  alias ApiReport.Registrations.Registration
+  alias ApiReport.Partners.Partner
 
   @fields ~w()a
-  @required_fields ~w(name)a
+  @required_fields ~w(name cpf email partner_id)a
 
   @primary_key {:id, :binary_id, autogenerate: true}
+  @foreign_key_type :binary_id
 
-  schema "partners" do
+  schema "registrations" do
     field :name, :string
-
-    has_many :registrations, Registration
+    field :cpf, :string
+    field :email, :string
+    belongs_to :partner, Partner
 
     timestamps()
   end
