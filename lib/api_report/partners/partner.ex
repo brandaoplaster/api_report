@@ -3,6 +3,8 @@ defmodule ApiReport.Partners.Partner do
 
   import Ecto.Changeset
 
+  alias ApiReport.Registrations.Registration
+
   @fields ~w()a
   @required_fields ~w(name)a
 
@@ -10,6 +12,8 @@ defmodule ApiReport.Partners.Partner do
 
   schema "partners" do
     field :name, :string
+
+    has_many :registrations, Registration
 
     timestamps()
   end
