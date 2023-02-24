@@ -11,6 +11,6 @@ defmodule ApiReport.PartnerFixture do
       |> Enum.into(valid_attrs())
       |> Partners.create_partner()
 
-      partner
+    partner
   end
 end
