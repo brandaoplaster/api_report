@@ -3,6 +3,7 @@ defmodule ApiReport.PartnersTest do
 
   alias ApiReport.Partners.Partner
   alias ApiReport.Partners
+  alias ApiReport.ErrorHandling.Error
 
   describe "partners" do
     test "create_partner/1 with valid data creates a partner" do
@@ -13,7 +14,7 @@ defmodule ApiReport.PartnersTest do
 
     test "create_partner/1 with invalid data returns error changeset" do
       expected = params_for(:partner, %{name: ""})
-      assert {:error, %Ecto.Changeset{}} = Partners.create_partner(expected)
+      assert {:error, %Error{}} = Partners.create_partner(expected)
     end
 
     test "list_partners/0 returns all partners" do
@@ -23,7 +24,8 @@ defmodule ApiReport.PartnersTest do
 
     test "get_partner!/1 returns the partner with given id" do
       partner = insert(:partner)
-      assert Partners.get_partner!(partner.id) == partner
+      assert {:ok, %Partner{} = response} = Partners.get_partner(partner.id)
+      assert partner.name == response.name
     end
   end
 end
