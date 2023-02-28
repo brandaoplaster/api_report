@@ -13,4 +13,6 @@ defmodule ApiReport.ErrorHandling.Error do
   end
 
   def build_partner_not_found_error, do: build(:not_found, "Partner not found")
+
+  def build_report_not_found_error, do: build(:not_found, "Report name not found")
 end

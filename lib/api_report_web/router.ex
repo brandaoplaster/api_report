@@ -9,6 +9,7 @@ defmodule ApiReportWeb.Router do
     pipe_through :api
 
     resources "/partners", PartnersController, only: [:index, :create, :show]
+    post "/registrations", RegistrationsController, :create
   end
 
   # Enables LiveDashboard only for development

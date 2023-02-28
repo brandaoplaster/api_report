@@ -9,15 +9,26 @@ defmodule ApiReport.RegistrationsTest do
   describe "registration" do
     test "create_registration/1 with valid data creates a registration" do
       partner = insert(:partner)
-      expected = params_for(:registration, %{email: "jhon@gmail.com", partner_id: partner.id})
+
+      expected = %{
+        "cpf" => "111.222.333-42",
+        "email" => "ruan@gmail.com",
+        "name" => "Ruan Chaves",
+        "partner_id" => partner.id
+      }
 
       assert {:ok, %Registration{} = registration} = Registrations.create_registration(expected)
-      assert registration.email == expected.email
+      assert registration.email == expected["email"]
     end
 
     test "create_registration/1 with invalid data returns error changeset" do
       partner = insert(:partner)
-      expected = params_for(:registration, %{email: "", partner_id: partner.id})
+
+      expected = %{
+        "email" => "",
+        "partner_id" => partner.id
+      }
+
       assert {:error, %Ecto.Changeset{}} = Registrations.create_registration(expected)
     end
 

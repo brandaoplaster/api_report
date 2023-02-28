@@ -20,6 +20,8 @@ defmodule ApiReport.Partners do
     Repo.all(Partner)
   end
 
+  def get_partner_by_id(id), do: Repo.get!(Partner, id)
+
   def get_partner(id) do
     with %Partner{} = partner <- Repo.get(Partner, id) do
       {:ok, partner}
