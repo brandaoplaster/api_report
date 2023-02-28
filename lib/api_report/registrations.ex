@@ -9,10 +9,10 @@ defmodule ApiReport.Registrations do
   alias ApiReport.Registrations.Registration
 
   def create_registration(attrs \\ %{}) do
-    %{partner_id: partner_id} = attrs
+    %{"partner_id" => partner_id} = attrs
 
     partner_id
-    |> Partners.get_partner!()
+    |> Partners.get_partner_by_id()
     |> Ecto.build_assoc(:registrations)
     |> Registration.changeset(attrs)
     |> Repo.insert()
