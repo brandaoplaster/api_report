@@ -56,7 +56,8 @@ defmodule ApiReport.MixProject do
       {:excoveralls, "~> 0.14.4", only: :test},
       {:sobelow, "~> 0.11.1", only: :dev},
       {:faker, "~> 0.17", only: :test},
-      {:ex_machina, "~> 2.7.0"}
+      {:ex_machina, "~> 2.7.0"},
+      {:csv, "~> 3.0"}
     ]
   end
 
