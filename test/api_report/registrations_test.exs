@@ -3,8 +3,8 @@ defmodule ApiReport.RegistrationsTest do
 
   import ApiReport.Factory
 
-  alias ApiReport.Registrations.Registration
   alias ApiReport.Registrations
+  alias ApiReport.Registrations.Registration
 
   describe "registration" do
     test "create_registration/1 with valid data creates a registration" do

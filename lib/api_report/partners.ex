@@ -5,9 +5,9 @@ defmodule ApiReport.Partners do
 
   import Ecto.Query, warn: false
 
-  alias ApiReport.Repo
-  alias ApiReport.Partners.Partner
   alias ApiReport.ErrorHandling.Error
+  alias ApiReport.Partners.Partner
+  alias ApiReport.Repo
 
   def create_partner(attrs \\ %{}) do
     %Partner{}

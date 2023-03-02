@@ -3,7 +3,7 @@ defmodule ApiReportWeb.PartnersView do
 
   alias ApiReport.Partners.Partner
 
-  def render("index.json", %{partners:  partners}) do
+  def render("index.json", %{partners: partners}) do
     %{
       partner: Enum.map(partners, &partners_json/1),
       message: "Partner listing"
