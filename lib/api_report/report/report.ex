@@ -1,7 +1,7 @@
 defmodule ApiReport.Report.Report do
+  alias ApiReport.ErrorHandling.Error
   alias ApiReport.Registrations
   alias ApiReport.Report.Csv
-  alias ApiReport.ErrorHandling.Error
 
   def generate_report(%{"report_name" => "DailyRegistrations"} = params) do
     case validate_filters(params) do

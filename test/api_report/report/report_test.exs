@@ -1,8 +1,8 @@
 defmodule ApiReport.Report.ReportTest do
   use ApiReport.DataCase
 
+  alias ApiReport.ErrorHandling.Error
   alias ApiReport.Report.Report
-  alias alias ApiReport.ErrorHandling.Error
 
   describe "generate_report/1" do
     test "when report_name is invalid return error" do

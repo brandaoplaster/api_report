@@ -1,9 +1,9 @@
 defmodule ApiReport.PartnersTest do
   use ApiReport.DataCase
 
-  alias ApiReport.Partners.Partner
-  alias ApiReport.Partners
   alias ApiReport.ErrorHandling.Error
+  alias ApiReport.Partners
+  alias ApiReport.Partners.Partner
 
   describe "partners" do
     test "create_partner/1 with valid data creates a partner" do

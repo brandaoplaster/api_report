@@ -29,7 +29,7 @@ defmodule ApiReport.Report.Csv do
     {:ok, output_path}
   end
 
-  defp generate_file_name() do
+  defp generate_file_name do
     datetime = DateTime.utc_now() |> DateTime.to_iso8601()
 
     Regex.replace(~r/[^0-9]/, datetime, "")

@@ -1,8 +1,8 @@
 defmodule ApiReportWeb.CsvController do
   use ApiReportWeb, :controller
 
-  alias ApiReportWeb.FallbackController
   alias ApiReport.Report.Report
+  alias ApiReportWeb.FallbackController
 
   action_fallback FallbackController
 
