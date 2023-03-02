@@ -11,8 +11,6 @@ defmodule ApiReportWeb.Router do
     resources "/partners", PartnersController, only: [:index, :create, :show]
     post "/registrations", RegistrationsController, :create
     post "/csv_report/:report_name", CsvController, :create
-
-
   end
 
   # Enables LiveDashboard only for development
